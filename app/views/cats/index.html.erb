@@ -1,0 +1,29 @@
+<div class="page-header">
+  <%= link_to new_cat_path, :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Cat
+  <% end %>
+  <h1>Listing cats</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Name</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @cats) do |cat| %>
+            <td><%= cat.name %></td>
+            <td><%= link_to 'Show', cat %></td>
+        <td><%= link_to 'Edit', edit_cat_path(cat) %></td>
+        <td><%= link_to 'Destroy', cat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
